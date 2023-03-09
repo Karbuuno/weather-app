@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Weather App</title>
+  </head>
+  <body>
+    <!-- <header class="header">
+      <h1>Weather Dashboard</h1>
+    </header> -->
+    <header >
+      <div class="bg-blue-900 text-center h-16 pt-2 text-4xl text-white ">
+      <div>Weather App</div>
+      </div>
+  </header>
+  <div class="flex">
+    <i id="burger" class="fa fa-bars text-2xl  "></i>
+    <!-- <div class="container"> -->
+      <!-- <aside class="side-bar"> -->
+      <aside id="side-bar
+      " class=" flex justfy-center h-screen w-72 shadow-lg ">
+        
+        <!-- <h1>Search for a city:</h1> -->
+        <div class="flex flex-col items-center ">
+          <div class="mx-7 my-5">
+            <h1>Search for a city:</h1>
+        <input id="search-input" class="rounded border border-blue-500 text-center
+      " type="text" placeholder="Search a city">
+      </div>
+      <div class="bg-blue-500 w-32 p-1 text-center text-white font-bold text-md rounded ">
+          <button id="btn-search">Search</button>
+         </div>
+        <!-- <input type="text" id="search-input" placeholder="Search a city" />
+        <button id="btn-search">Search</button> -->
+        <!-- search history -->
+        <div >
+          <ul id="search-history" ></ul>
+
+               </div>
+          </div>
+        <!-- <div class="search-history list-items">
+          
+        </div> -->
+      </aside>
+      <div class="flex flex-col mx-5 my-5  ">
+        <section id="section-1" class="  border border-black-500 h-56 p-4">
+          <!-- <h1 class="tody-title">Atlanta (9-13-2023)🌥️</h1>
+          <div class="today-forecast">
+            <p>Temp: 76.62F</p>
+            <p>Wind: 8.43 MPH</p>
+            <p>Humidity: 44 %</p>
+          </div> -->
+        </section>
+        <section class="section-2">
+          <!-- <h1>5-day Forecast</h1> -->
+          <div class="mt-4">
+            <h1 class="text-2xl font-bold">5 Days forecast</h1>
+              
+          </div>
+          <div id="week-forecast" class="flex space-x-6 h-48 mt-5  leading-8   ">
+          <!-- <div class="week-forecast"> -->
+            
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/script.js"></script>
+  </body>
+</html>
