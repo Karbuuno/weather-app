@@ -88,14 +88,16 @@ function displayHistory(searchInputValue) {
   });
   // }, 1000);
 }
-
-listItems.forEach(item => {
-  //  displaying data from the list items
-  item.addEventListener("click", event => {
-    displayHistory(event.target.textContent);
-    getAPI(event.target.textContent);
+setTimeout(() => {
+  listItems.forEach(item => {
+    //  displaying data from the list items
+    item.addEventListener("click", event => {
+      displayHistory(event.target.textContent);
+      getAPI(event.target.textContent);
+    });
   });
-});
+}, 1000);
+
 // searching weather data using city name
 btnSearch.addEventListener("click", function () {
   if (searchInput.value == "") return alert("please type a city name");
