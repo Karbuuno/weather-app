@@ -8,7 +8,6 @@
   }
   .daily-forecast {
     width: 600px;
-    height: auto;
   }
   .week-forecast {
     display: flex;
