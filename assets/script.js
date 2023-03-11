@@ -82,9 +82,11 @@ function displayHistory(searchInputValue) {
 
   searchHistory.innerHTML = "";
   // looping through every button to get this city data
-  storageData.forEach(city => {
-    searchHistory.innerHTML += `<button id="list-items" class="list-items bg-gray-400 w-56 mt-4 h-8 rounded text-center ml-6 text-xl font-serif p-1">${city}</button>`;
-  });
+  setTimeout(() => {
+    storageData.forEach(city => {
+      searchHistory.innerHTML += `<button id="list-items" class="list-items bg-gray-400 w-56 mt-4 h-8 rounded text-center ml-6 text-xl font-serif p-1">${city}</button>`;
+    });
+  }, 1000);
 }
 
 listItems.forEach(item => {
