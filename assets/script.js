@@ -3,7 +3,7 @@ var btnSearch = document.getElementById("btn-search");
 var section1 = document.getElementById("section-1");
 var todayForecast = document.querySelector(".today-forecast");
 var searchHistory = document.getElementById("search-history");
-var listItems = document.querySelectorAll(".list-items");
+
 var weekForecast = document.getElementById("week-forecast");
 var burger = document.getElementById("burger");
 var sideBar = document.getElementById("side-bar");
@@ -88,15 +88,17 @@ function displayHistory(searchInputValue) {
   });
   // }, 1000);
 }
-setTimeout(() => {
-  listItems.forEach(item => {
-    //  displaying data from the list items
-    item.addEventListener("click", event => {
-      displayHistory(event.target.textContent);
-      getAPI(event.target.textContent);
-    });
+
+// var listItems = ;
+// setTimeout(() => {
+document.querySelectorAll(".list-items").forEach(item => {
+  //  displaying data from the list items
+  item.addEventListener("click", event => {
+    displayHistory(event.target.textContent);
+    getAPI(event.target.textContent);
   });
-}, 1000);
+});
+// }, 1000);
 
 // searching weather data using city name
 btnSearch.addEventListener("click", function () {
