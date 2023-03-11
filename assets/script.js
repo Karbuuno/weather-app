@@ -3,7 +3,7 @@ var btnSearch = document.getElementById("btn-search");
 var section1 = document.getElementById("section-1");
 var todayForecast = document.querySelector(".today-forecast");
 var searchHistory = document.getElementById("search-history");
-var listItems = document.getElementById("list-items");
+var listItems = document.querySelectorAll(".list-items");
 var weekForecast = document.getElementById("week-forecast");
 var burger = document.getElementById("burger");
 var sideBar = document.getElementById("side-bar");
@@ -87,7 +87,7 @@ function displayHistory(searchInputValue) {
   });
 }
 
-document.querySelectorAll(".list-items").forEach(item => {
+listItems.forEach(item => {
   //  displaying data from the list items
   item.addEventListener("click", event => {
     displayHistory(event.target.textContent);
