@@ -3,71 +3,101 @@ var btnSearch = document.getElementById("btn-search");
 var section1 = document.getElementById("section-1");
 var todayForecast = document.querySelector(".today-forecast");
 var searchHistory = document.getElementById("search-history");
-var listItems = document.querySelector(".list-items");
+var listItems = document.getElementById("list-items");
 var weekForecast = document.getElementById("week-forecast");
 var burger = document.getElementById("burger");
 var sideBar = document.getElementById("side-bar");
-
-// var today = dayjs().format("M-DD-YYYY");
-
-// var searchInputValue = searchInput.value;
 
 function getAPI(searchInputValue) {
   var reqURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     searchInputValue +
-    "&appid=50da6ed7b37bc64850231cb706c4a313";
+    "&units=imperial&appid=28d100a90af18339c0a588b69fc5ad9d";
+
+  // requesting data
   fetch(reqURL)
     .then(function (res) {
       return res.json();
     })
     .then(function (data) {
+      if (data.cod != "200")
+        return (weekForecast.innerHTML = "<h1>we don't have any city</h1>");
+      if (data)
+        // current day icon url
+        var icon = `"https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}.png"`;
+      // displaying current day data
       section1.innerHTML = `
         <h1 class="text-2xl  font-bold">${data.city.name} (${
         data["list"][0].dt_txt.split(" ")[0]
-      }) ${data.list[0].weather.icon}</h1>
+      })</h1>
         <div class="mt-4 leading-10 text-3xl">
-          <p>Temp: ${data.list[0].main.temp}</p>
+        <img src=${icon} alt="">
+          <p>Temp: ${data.list[0].main.temp} °F</p>
           <p>Wind: ${data.list[0].wind.speed} MPH</p>
           <p>Humidity: ${data.list[0].main.humidity} %</p>
         </div>`;
-      searchInputValue = "";
+
       weekForecast.innerHTML = "";
+      // looping through data to get 5 day 40 requests/8=5
       for (let i = 0; i < data["list"].length; i += 8) {
-        weekForecast.innerHTML += `<div class="bg-black text-white w-40 text-center p-4 rounded">
+        // 5 days  icon url
+        var icons = `"https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png"`;
+        // displaying 5 days forecast
+        weekForecast.innerHTML += `<div  class=" cards bg-black text-white w-40 text-center p-4 rounded">
           <h3>${data["list"][i].dt_txt.split(" ")[0]}</h3>
-          <p>🌥️</p>
+          <img src=${icons} alt="">
           <p>Temp: ${data["list"][i].main.temp}</p>
           <p>Wind: ${data["list"][i].wind.speed} MPH</p>
           <p>Humidity: ${data["list"][i].main.humidity} %</p>
         </div>`;
       }
 
-      // window.localStorage.setItem("data", JSON.stringify(storageData));
       return data;
+    })
+    .catch(err => {
+      console.log("err", err);
     });
-  displayHistory();
 }
 
-function displayHistory() {
-  var text = searchInput.value;
-
-  searchHistory.innerHTML += `<li class=" bg-gray-400 w-56 mt-4 h-8 rounded text-center text-xl font-serif p-1">${text}</li>`;
-}
-burger.addEventListener("click", function () {
-  // sideBar.
-});
-btnSearch.addEventListener("click", function () {
-  getAPI(searchInput.value);
-
+displayHistory();
+// displaying history on side bar
+function displayHistory(searchInputValue) {
   var storageData = JSON.parse(window.localStorage.getItem("locations")) || [];
 
-  console.log("storage data", storageData);
+  if (searchInputValue != undefined) {
+    // checking if already exists
+    let exists = storageData.filter(city => city == searchInputValue);
 
-  // a.push(JSON.parse(localStorage.getItem('session')));
-  console.log(searchInput.value);
-  var newData = storageData.push(searchInput.value);
-  newData = JSON.stringify(newData);
+    if (exists.length > 0) return;
+    window.localStorage.setItem(
+      "locations",
+      JSON.stringify([searchInputValue, ...storageData])
+    );
+    storageData = [searchInputValue, ...storageData];
+  }
 
-  window.localStorage.setItem("locations", newData);
+  if (searchInputValue == undefined) {
+    getAPI(storageData[0]);
+  }
+
+  searchHistory.innerHTML = "";
+  // looping through every button to get this city data
+  storageData.forEach(city => {
+    searchHistory.innerHTML += `<button id="list-items" class="list-items bg-gray-400 w-56 mt-4 h-8 rounded text-center ml-6 text-xl font-serif p-1">${city}</button>`;
+  });
+}
+
+document.querySelectorAll(".list-items").forEach(item => {
+  //  displaying data from the list items
+  item.addEventListener("click", event => {
+    displayHistory(event.target.textContent);
+    getAPI(event.target.textContent);
+  });
+});
+// searching weather data using city name
+btnSearch.addEventListener("click", function () {
+  if (searchInput.value == "") return alert("please type a city name");
+  getAPI(searchInput.value);
+  displayHistory(searchInput.value);
+  searchInput.value = "";
 });

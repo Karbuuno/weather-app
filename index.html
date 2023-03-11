@@ -11,22 +11,20 @@
     <title>Weather App</title>
   </head>
   <body>
-    <!-- <header class="header">
-      <h1>Weather Dashboard</h1>
-    </header> -->
+    <!-- header -->
     <header >
-      <div class="bg-blue-900 text-center h-16 pt-2 text-4xl text-white ">
+      <div class="  bg-blue-900 text-center h-16 pt-2 text-4xl text-white ">
       <div>Weather App</div>
       </div>
   </header>
-  <div class="flex">
-    <i id="burger" class="fa fa-bars text-2xl  "></i>
-    <!-- <div class="container"> -->
-      <!-- <aside class="side-bar"> -->
+   <!-- side bar -->
+  <div class="flex container">
+   
+    
       <aside id="side-bar
-      " class=" flex justfy-center h-screen w-72 shadow-lg ">
+      " class=" side-bar flex justfy-center h-screen w-72 shadow-lg md:max-lg: flex-wrap h-56">
         
-        <!-- <h1>Search for a city:</h1> -->
+      
         <div class="flex flex-col items-center ">
           <div class="mx-7 my-5">
             <h1>Search for a city:</h1>
@@ -36,35 +34,28 @@
       <div class="bg-blue-500 w-32 p-1 text-center text-white font-bold text-md rounded ">
           <button id="btn-search">Search</button>
          </div>
-        <!-- <input type="text" id="search-input" placeholder="Search a city" />
-        <button id="btn-search">Search</button> -->
-        <!-- search history -->
-        <div >
-          <ul id="search-history" ></ul>
+        
+        <div id="search-history" >
+          
 
                </div>
           </div>
-        <!-- <div class="search-history list-items">
-          
-        </div> -->
+        
       </aside>
-      <div class="flex flex-col mx-5 my-5  ">
-        <section id="section-1" class="  border border-black-500 h-56 p-4">
-          <!-- <h1 class="tody-title">Atlanta (9-13-2023)🌥️</h1>
-          <div class="today-forecast">
-            <p>Temp: 76.62F</p>
-            <p>Wind: 8.43 MPH</p>
-            <p>Humidity: 44 %</p>
-          </div> -->
+       <!-- daily forecast section -->
+      <div class=" forecast flex flex-col mx-5 my-5   ">
+        <section id="section-1" class="daily-forecast  border border-black-500 h-60 p-4">
+          
         </section>
         <section class="section-2">
-          <!-- <h1>5-day Forecast</h1> -->
+          
           <div class="mt-4">
             <h1 class="text-2xl font-bold">5 Days forecast</h1>
               
           </div>
-          <div id="week-forecast" class="flex space-x-6 h-48 mt-5  leading-8   ">
-          <!-- <div class="week-forecast"> -->
+          <!-- 5 days forecast section -->
+          <div id="week-forecast" class=" week-forecast flex space-x-6 h-56 mt-5  leading-8   ">
+          <span></span>
             
             </div>
           </div>
@@ -77,5 +68,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/script.js"></script>
+    
   </body>
 </html>
