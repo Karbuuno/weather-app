@@ -1,6 +1,6 @@
 ## Weather App
 
-Weather app designed by HTML , css and Tailwind css. This app shows your current day weather forecast and next 5 days in this week. All the city you searches, will be saved in the local Storage.
+Weather app designed by HTML , css and Tailwind css. This app shows your current day weather forecast and next 5 days in this week. All the city you searched, will be saved in the local Storage.
 
 [deployed link](https://karbuuno.github.io/weather-app/)<br>
 
