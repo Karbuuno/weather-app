@@ -32,7 +32,7 @@
   }
   .daily-forecast {
     width: 400px;
-    height: auto;
+    /* height: auto; */
   }
   .week-forecast {
     display: flex;
