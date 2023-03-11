@@ -8,5 +8,7 @@ Weather app designed by HTML , css and Tailwind css. This app shows your current
 
 ![alt first page image](/assets/images/image-1.png)
 ![alt second page image](/assets/images/image-2.png)
-![alt third page image](/assets/images/image-3.png)
-![alt fourth page image](/assets/images/image-4.png)
+![alt second page image](/assets/images/image-3.png)
+![alt small screen image](/assets/images/image-4.png)
+![alt small screen image](/assets/images/image-5.png)
+!
