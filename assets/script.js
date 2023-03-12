@@ -46,7 +46,7 @@ function getAPI(searchInputValue) {
         weekForecast.innerHTML += `<div  class=" cards bg-black text-white w-40 text-center p-4 rounded">
           <h3>${data["list"][i].dt_txt.split(" ")[0]}</h3>
           <img src=${icons} alt="">
-          <p>Temp: ${data["list"][i].main.temp}</p>
+          <p>Temp: ${data["list"][i].main.temp} °F</p>
           <p>Wind: ${data["list"][i].wind.speed} MPH</p>
           <p>Humidity: ${data["list"][i].main.humidity} %</p>
         </div>`;
